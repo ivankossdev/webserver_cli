@@ -1,0 +1,14 @@
+/home/ivan/developer/DotnetCore/webserver_cli/bin/Debug/net8.0/webserver_cli
+/home/ivan/developer/DotnetCore/webserver_cli/bin/Debug/net8.0/webserver_cli.deps.json
+/home/ivan/developer/DotnetCore/webserver_cli/bin/Debug/net8.0/webserver_cli.runtimeconfig.json
+/home/ivan/developer/DotnetCore/webserver_cli/bin/Debug/net8.0/webserver_cli.dll
+/home/ivan/developer/DotnetCore/webserver_cli/bin/Debug/net8.0/webserver_cli.pdb
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/webserver_cli.GeneratedMSBuildEditorConfig.editorconfig
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/webserver_cli.AssemblyInfoInputs.cache
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/webserver_cli.AssemblyInfo.cs
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/webserver_cli.csproj.CoreCompileInputs.cache
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/webserver_cli.dll
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/refint/webserver_cli.dll
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/webserver_cli.pdb
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/webserver_cli.genruntimeconfig.cache
+/home/ivan/developer/DotnetCore/webserver_cli/obj/Debug/net8.0/ref/webserver_cli.dll
