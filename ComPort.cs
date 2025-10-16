@@ -6,7 +6,6 @@ namespace webserver_cli;
 public class ComPort
 {
     protected static SerialPort _serialPort = new();
-    private static bool _continue = true;
     protected static void Init(string comport)
     {
         _serialPort.PortName = comport;
@@ -16,7 +15,6 @@ public class ComPort
 
         _serialPort.ReadTimeout = 500;
         _serialPort.WriteTimeout = 500;
-
     }
 
     protected static bool Open()
@@ -37,7 +35,7 @@ public class ComPort
 
     protected static void Read()
     {
-        while (_continue)
+        while (_serialPort.IsOpen)
         {
             try
             {
@@ -46,10 +44,5 @@ public class ComPort
             }
             catch (TimeoutException) { }
         }
-    }
-
-    private static void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
-    {
-        _serialPort.DiscardInBuffer();
     }
 }
