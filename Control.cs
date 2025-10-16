@@ -19,7 +19,7 @@ class Control : ComPort
             {
 
                 Open();
-                
+                Read();
                 Close();
             }
             catch (Exception e)
