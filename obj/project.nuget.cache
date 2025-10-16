@@ -1,8 +1,27 @@
 {
   "version": 2,
-  "dgSpecHash": "hDDEXLJqKyCVsctHMl66SmG/4gQjanT9gLgLrMx8VsFu1tAx2QqWTUyTvbVZgWnAM8RH40xFO0U/0gTCdoSdBw==",
+  "dgSpecHash": "4GLdgqiTUc7BU3XLeto4HmnlyLH/3So7G3mBmAmDKLEq8kwT2xqlb5IzhRZnu472JeGWe2gGiw5sG9z/I/79uw==",
   "success": true,
   "projectFilePath": "/home/ivan/developer/DotnetCore/webserver_cli/webserver_cli.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/ivan/.nuget/packages/runtime.android-arm.runtime.native.system.io.ports/9.0.10/runtime.android-arm.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.android-arm64.runtime.native.system.io.ports/9.0.10/runtime.android-arm64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.android-x64.runtime.native.system.io.ports/9.0.10/runtime.android-x64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.android-x86.runtime.native.system.io.ports/9.0.10/runtime.android-x86.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.linux-arm.runtime.native.system.io.ports/9.0.10/runtime.linux-arm.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.linux-arm64.runtime.native.system.io.ports/9.0.10/runtime.linux-arm64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.linux-bionic-arm64.runtime.native.system.io.ports/9.0.10/runtime.linux-bionic-arm64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.linux-bionic-x64.runtime.native.system.io.ports/9.0.10/runtime.linux-bionic-x64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.linux-musl-arm.runtime.native.system.io.ports/9.0.10/runtime.linux-musl-arm.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.linux-musl-arm64.runtime.native.system.io.ports/9.0.10/runtime.linux-musl-arm64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.linux-musl-x64.runtime.native.system.io.ports/9.0.10/runtime.linux-musl-x64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.linux-x64.runtime.native.system.io.ports/9.0.10/runtime.linux-x64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.maccatalyst-arm64.runtime.native.system.io.ports/9.0.10/runtime.maccatalyst-arm64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.maccatalyst-x64.runtime.native.system.io.ports/9.0.10/runtime.maccatalyst-x64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.native.system.io.ports/9.0.10/runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.osx-arm64.runtime.native.system.io.ports/9.0.10/runtime.osx-arm64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/runtime.osx-x64.runtime.native.system.io.ports/9.0.10/runtime.osx-x64.runtime.native.system.io.ports.9.0.10.nupkg.sha512",
+    "/home/ivan/.nuget/packages/system.io.ports/9.0.10/system.io.ports.9.0.10.nupkg.sha512"
+  ],
   "logs": []
 }
