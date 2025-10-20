@@ -3,7 +3,7 @@ namespace webserver_cli;
 
 class Control : ComPort
 {
-    public static void Prog()
+    public static void PortHandler()
     {
         string[] ports = SerialPort.GetPortNames();
         if (ports.Length > 0)
