@@ -7,6 +7,4 @@ class Program
         Control.PortHandler();
         Console.WriteLine("Stop programm");
     }
-    
-
 }

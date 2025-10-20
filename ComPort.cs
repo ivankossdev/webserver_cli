@@ -33,16 +33,13 @@ public class ComPort
         _serialPort.WriteLine(message);
     }
 
-    protected static void Read()
+    protected static void ReadLine()
     {
-        while (_serialPort.IsOpen)
+        try
         {
-            try
-            {
-                string message = _serialPort.ReadLine();
-                Console.WriteLine(message);
-            }
-            catch (TimeoutException) { }
+            string message = _serialPort.ReadLine();
+            Console.WriteLine(message);
         }
+        catch (TimeoutException) { }
     }
 }

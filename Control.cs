@@ -17,9 +17,11 @@ class Control : ComPort
         {
             try
             {
-
                 Open();
-                Read();
+                do
+                {
+                    ReadLine();
+                } while (_serialPort.IsOpen);
                 Close();
             }
             catch (Exception e)
@@ -40,10 +42,11 @@ class Control : ComPort
             pressKey = Console.ReadKey();
 
             int num = Convert.ToInt32(pressKey.KeyChar) & 0x0f;
+            Console.Clear();
 
             if (num <= ports.Length - 1)
             {
-                Console.WriteLine($"[ {num} ] {ports[num]}");
+                Console.WriteLine($"Открыт порт {ports[num]}");
                 Init(ports[num]);
 
                 state = true;
