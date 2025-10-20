@@ -4,7 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Control.PortHandler();
+        Thread threadPortHandler = new(Control.PortHandler);
+
         Console.WriteLine("Stop programm");
+    }
+
+    static void StopControl()
+    {
+        Control.OpenPort = Console.ReadLine();  
     }
 }

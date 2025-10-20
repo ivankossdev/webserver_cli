@@ -3,6 +3,7 @@ namespace webserver_cli;
 
 class Control : ComPort
 {
+    public static string? OpenPort;
     public static void PortHandler()
     {
         string[] ports = SerialPort.GetPortNames();
@@ -11,6 +12,7 @@ class Control : ComPort
             for (int i = 0; i < ports.Length; i++)
             {
                 Console.WriteLine($"[ {i} ] {ports[i]}");
+                
             }
         }
         if (PortChoice(ports))
@@ -21,6 +23,8 @@ class Control : ComPort
                 do
                 {
                     ReadLine();
+                    
+                    if (OpenPort == "close") break;
                 } while (_serialPort.IsOpen);
                 Close();
             }
