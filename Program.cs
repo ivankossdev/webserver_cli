@@ -4,13 +4,23 @@ class Program
 {
     static void Main(string[] args)
     {
-        Thread threadPortHandler = new(Control.PortHandler);
+        Thread t_PortHandler = new(Control.PortHandler);
+        Thread t_StopControl = new(StopControl);
+        t_PortHandler.Start();
+        t_StopControl.Start();
 
-        Console.WriteLine("Stop programm");
+        t_StopControl.Join();    
+        Console.WriteLine("Программа остановлена");
     }
 
     static void StopControl()
     {
-        Control.OpenPort = Console.ReadLine();  
+        do
+        {
+            Thread.Sleep(2000);
+            Console.WriteLine("close выход из программы");
+            Control.OpenPort = Console.ReadLine() ?? "";
+        } while (!Control.OpenPort.Equals("close"));
     }
+    
 }
