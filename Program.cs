@@ -10,7 +10,7 @@ class Program
         t_StopControl.Start();
 
         t_StopControl.Join();    
-        Console.WriteLine("Программа остановлена");
+        Console.WriteLine(Message.stop);
     }
 
     static void StopControl()
@@ -18,9 +18,9 @@ class Program
         do
         {
             Thread.Sleep(2000);
-            Console.WriteLine("close выход из программы");
+            Console.WriteLine(Message.exit1);
             Control.OpenPort = Console.ReadLine() ?? "";
-        } while (!Control.OpenPort.Equals("close"));
+        } while (!Control.OpenPort.Equals(Message.stopWord));
     }
     
 }
