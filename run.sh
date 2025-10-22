@@ -4,7 +4,7 @@ clear
 # название программы
 app_name="webserver_cli" 
 
-if [[ "$app_name" == "$1" ]]
+if [[ "app" == "$1" ]]
     then
         echo start programm in Debug folder "$1"
         path=`pwd`

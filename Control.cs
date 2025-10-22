@@ -19,14 +19,15 @@ class Control : ComPort
         {
             try
             {
+                
                 Open();
                 do
                 {
                     ReadLine();
-                    
                     if (OpenPort == "close") break;
                 } while (_serialPort.IsOpen);
                 Close();
+                
             }
             catch (Exception e)
             {
