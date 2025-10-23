@@ -3,35 +3,37 @@ namespace webserver_cli;
 
 class Control : ComPort
 {
-    public static string? OpenPort;
+    public static string? RxMessage;
     public static void PortHandler()
     {
+        string openSerialPort = string.Empty;
         string[] ports = SerialPort.GetPortNames();
         if (ports.Length > 0)
         {
             for (int i = 0; i < ports.Length; i++)
             {
-                Console.WriteLine($"[ {i} ] {ports[i]}");
-                
+                openSerialPort = ports[i]; 
+                Console.WriteLine($"[ {i} ] {openSerialPort}");
             }
         }
         if (PortChoice(ports))
         {
             try
             {
-                
+
                 Open();
                 do
                 {
                     ReadLine();
-                    if (OpenPort == "close") break;
+                    if (RxMessage == "close") break;
                 } while (_serialPort.IsOpen);
                 Close();
-                
+
             }
-            catch (Exception e)
+            catch (Exception e) when (e.Message.Contains($"Access to the port '{openSerialPort}' is denied"))
             {
-                Console.WriteLine($"Порт занят другой программой\n{e}");
+                Console.Clear();
+                Console.WriteLine($"Порт занят другой программой\n");
             }
         }
     }

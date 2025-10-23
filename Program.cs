@@ -19,8 +19,12 @@ class Program
         {
             Thread.Sleep(2000);
             Console.WriteLine(Message.exit1);
-            Control.OpenPort = Console.ReadLine() ?? "";
-        } while (!Control.OpenPort.Equals(Message.stopWord));
+            Control.RxMessage = Console.ReadLine() ?? "";
+            if (!Control.RxMessage.Equals(Message.stopWord))
+            {
+                Control.Write(Control.RxMessage);
+            }
+        } while (!Control.RxMessage.Equals(Message.stopWord));
     }
     
 }

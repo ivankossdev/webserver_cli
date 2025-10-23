@@ -31,7 +31,7 @@ public class ComPort
         return _serialPort.IsOpen;
     }
 
-    protected static void Write(string message){
+    public static void Write(string message){
         _serialPort.WriteLine(message);
     }
 
