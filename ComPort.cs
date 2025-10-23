@@ -32,7 +32,14 @@ public class ComPort
     }
 
     public static void Write(string message){
-        _serialPort.WriteLine(message);
+        try
+        {
+            _serialPort.WriteLine(message);
+        }
+        catch (Exception e) when (e.Message.Contains("The port is closed"))
+        {
+            System.Console.WriteLine($"Порт {_serialPort.PortName} закрыт");
+        }
     }
 
     protected static void ReadLine()

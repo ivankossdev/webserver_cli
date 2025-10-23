@@ -22,7 +22,7 @@ class Program
             Control.RxMessage = Console.ReadLine() ?? "";
             if (!Control.RxMessage.Equals(Message.stopWord))
             {
-                Control.Write(Control.RxMessage);
+                ComPort.Write(Control.RxMessage);
             }
         } while (!Control.RxMessage.Equals(Message.stopWord));
     }
