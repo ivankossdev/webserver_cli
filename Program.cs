@@ -15,10 +15,10 @@ class Program
 
     static void StopControl()
     {
+        Thread.Sleep(2000);
+        Console.WriteLine(Message.exit1);
         do
         {
-            Thread.Sleep(2000);
-            Console.WriteLine(Message.exit1);
             Control.RxMessage = Console.ReadLine() ?? "";
             if (!Control.RxMessage.Equals(Message.stopWord))
             {
