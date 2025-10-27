@@ -26,5 +26,4 @@ class Program
             }
         } while (!Control.RxMessage.Equals(Message.stopWord));
     }
-    
 }
