@@ -10,4 +10,5 @@ public static class Message
     public static readonly string searchedDevice = "Найденные устройства:";
     public static readonly string errorNumPort = " Неверный номер порта.";
     public static readonly string stop = "Программа остановлена.";
+    public static readonly string clear = "clear";
 }

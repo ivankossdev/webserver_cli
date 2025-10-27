@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Thread t_PortHandler = new(Control.PortHandler);
-        Thread t_StopControl = new(StopControl);
+        Thread t_StopControl = new(CliControl);
         t_PortHandler.Start();
         t_StopControl.Start();
 
@@ -13,7 +13,7 @@ class Program
         Console.WriteLine(Message.stop);
     }
 
-    static void StopControl()
+    static void CliControl()
     {
         Thread.Sleep(2000);
         Console.WriteLine(Message.exit1);

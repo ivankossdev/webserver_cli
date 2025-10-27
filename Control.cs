@@ -25,7 +25,12 @@ class Control : ComPort
                 do
                 {
                     ReadLine();
-                    if (RxMessage == "close") break;
+                    if (RxMessage == Message.stopWord) break; // Выход из программы 
+                    else if (RxMessage == Message.clear)      // Очищает экран консоли 
+                    {
+                        Console.Clear();
+                        RxMessage = string.Empty;
+                    }
                 } while (_serialPort.IsOpen);
                 Close();
 
