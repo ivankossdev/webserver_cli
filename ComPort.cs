@@ -6,6 +6,7 @@ namespace webserver_cli;
 public class ComPort
 {
     protected static SerialPort _serialPort = new();
+    public static bool isException = false; 
     protected static void Init(string comport)
     {
         _serialPort.PortName = comport;
@@ -38,7 +39,8 @@ public class ComPort
         }
         catch (Exception e) when (e.Message.Contains("The port is closed"))
         {
-            System.Console.WriteLine($"Порт {_serialPort.PortName} закрыт");
+            Console.WriteLine($"Порт {_serialPort.PortName} закрыт");
+            isException = true;
         }
     }
 

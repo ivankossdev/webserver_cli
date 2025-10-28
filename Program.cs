@@ -15,7 +15,6 @@ class Program
 
     static void CliControl()
     {
-        System.Console.WriteLine($"isWork {Control.isWork}");
         while (!Control.isWork) {  }
 
         if (Control.isWork)
@@ -23,6 +22,8 @@ class Program
             Console.WriteLine(Message.exit1);
             do
             {
+                if (ComPort.isException) break;
+
                 Control.RxMessage = Console.ReadLine() ?? "";
                 if (!Control.RxMessage.Equals(Message.stopWord))
                 {
