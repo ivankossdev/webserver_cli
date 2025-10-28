@@ -4,6 +4,7 @@ namespace webserver_cli;
 class Control : ComPort
 {
     public static string? RxMessage;
+    public static bool isWork; 
     public static void PortHandler()
     {
         string openSerialPort = string.Empty;
@@ -12,11 +13,12 @@ class Control : ComPort
         {
             for (int i = 0; i < ports.Length; i++)
             {
-                openSerialPort = ports[i]; 
+                openSerialPort = ports[i];
                 Console.WriteLine($"[ {i} ] {openSerialPort}");
             }
         }
-        if (PortChoice(ports))
+        isWork = PortChoice(ports);
+        if (isWork)
         {
             try
             {
@@ -41,6 +43,7 @@ class Control : ComPort
                 Console.WriteLine($"Порт занят другой программой\n");
             }
         }
+        isWork = true;
     }
 
     private static bool PortChoice(string[] ports)
@@ -69,7 +72,7 @@ class Control : ComPort
                 Console.WriteLine(Message.errorNumPort);
             }
         } while (pressKey.Key != ConsoleKey.Escape);
-
+        
         return state;
     }
 }

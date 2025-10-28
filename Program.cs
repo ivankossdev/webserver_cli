@@ -15,15 +15,20 @@ class Program
 
     static void CliControl()
     {
-        Thread.Sleep(2000);
-        Console.WriteLine(Message.exit1);
-        do
+        System.Console.WriteLine($"isWork {Control.isWork}");
+        while (!Control.isWork) {  }
+
+        if (Control.isWork)
         {
-            Control.RxMessage = Console.ReadLine() ?? "";
-            if (!Control.RxMessage.Equals(Message.stopWord))
+            Console.WriteLine(Message.exit1);
+            do
             {
-                ComPort.Write(Control.RxMessage);
-            }
-        } while (!Control.RxMessage.Equals(Message.stopWord));
+                Control.RxMessage = Console.ReadLine() ?? "";
+                if (!Control.RxMessage.Equals(Message.stopWord))
+                {
+                    ComPort.Write(Control.RxMessage);
+                }
+            } while (!Control.RxMessage.Equals(Message.stopWord));
+        }
     }
 }
