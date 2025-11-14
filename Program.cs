@@ -9,11 +9,11 @@ class Program
         Thread t_PortHandler = new(Control.PortHandler);
         Thread t_StopControl = new(CliControl);
 
-        if (args.Length > 1)
+        if (args.Length >= 1)
         {
             foreach (string arg in args)
             {
-                if (arg == "listener")
+                if (arg == "action")
                 {
                     await SimpleListenerExample();
                 }
