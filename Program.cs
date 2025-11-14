@@ -1,13 +1,13 @@
 ﻿namespace webserver_cli;
 using System.Net;
+using System.Threading.Tasks;
 
 class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         Thread t_PortHandler = new(Control.PortHandler);
         Thread t_StopControl = new(CliControl);
-        Thread t_Listener = new(SimpleListenerExample);
 
         if (args.Length > 1)
         {
@@ -15,7 +15,7 @@ class Program
             {
                 if (arg == "listener")
                 {
-                    t_Listener.Start();
+                    await SimpleListenerExample();
                 }
             }
         }
@@ -25,6 +25,37 @@ class Program
             t_StopControl.Start();
             t_StopControl.Join();    
             Console.WriteLine(Message.stop);
+        }
+    }
+
+    static async Task SendAction()
+    {
+       string uri = "http://192.168.0.219:8080/event/104/external1/activate"; // Replace with your target URI
+        string username = "admin";     // Replace with your username
+        string password = "evidenceadmin";     // Replace with your password
+
+        var credentialCache = new CredentialCache();
+        credentialCache.Add(new Uri(uri), "Digest", new NetworkCredential(username, password));
+
+        var handler = new HttpClientHandler
+        {
+            Credentials = credentialCache
+        };
+
+        using (var client = new HttpClient(handler))
+        {
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(uri);
+                response.EnsureSuccessStatusCode(); // Throws an exception if the HTTP status code is not 2xx
+
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine($"Response: {responseBody}");
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine($"Request error: {e.Message}");
+            }
         }
     }
 
@@ -48,7 +79,7 @@ class Program
         }
     }
 
-    public static void SimpleListenerExample()
+    public static async Task SimpleListenerExample()
     {
         while (true)
         {
@@ -60,21 +91,21 @@ class Program
             // if (prefixes == null || prefixes.Length == 0)
             //     throw new ArgumentException("prefixes");
 
-            // Create a listener.
             HttpListener listener = new HttpListener();
-            // Add the prefixes.
-            listener.Prefixes.Add("http://*:10500/");
+            listener.Prefixes.Add("http://192.168.0.175:10500/");
             listener.Start();
+
             Console.WriteLine("Listening...");
-            // Note: The GetContext method blocks while waiting for a request.
+            
             HttpListenerContext context = listener.GetContext();
             HttpListenerRequest request = context.Request;
-            // Obtain a response object.
+            
             HttpListenerResponse response = context.Response;
-            // Construct a response.
             string responseString = $"<HTML><BODY>OK</BODY></HTML>";
+
+            await SendAction();
+
             byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
-            // Get a response stream and write the response to it.
             response.ContentLength64 = buffer.Length;
             System.IO.Stream output = response.OutputStream;
             output.Write(buffer, 0, buffer.Length);
