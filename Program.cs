@@ -92,7 +92,7 @@ class Program
             //     throw new ArgumentException("prefixes");
 
             HttpListener listener = new HttpListener();
-            listener.Prefixes.Add("http://192.168.0.175:10500/");
+            listener.Prefixes.Add("http://192.168.0.175:10500/action/");
             listener.Start();
 
             Console.WriteLine("Listening...");
