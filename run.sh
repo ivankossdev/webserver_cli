@@ -11,5 +11,5 @@ if [[ "app" == "$1" ]]
         $path/bin/Debug/net8.0/$app_name 
     else
         echo "Build $app_name"
-        dotnet run $app_name
+        dotnet run $app_name $1
 fi

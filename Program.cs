@@ -5,26 +5,27 @@ class Program
 {
     static void Main(string[] args)
     {
-
         Thread t_PortHandler = new(Control.PortHandler);
         Thread t_StopControl = new(CliControl);
         Thread t_Listener = new(SimpleListenerExample);
 
-        foreach (string arg in args)
+        if (args.Length > 1)
         {
-            if (arg == "listener")
+            foreach (string arg in args)
             {
-                t_Listener.Start();
-            }
-            else
-            {
-                t_PortHandler.Start();
+                if (arg == "listener")
+                {
+                    t_Listener.Start();
+                }
             }
         }
-        
-        t_StopControl.Start();
-        t_StopControl.Join();    
-        Console.WriteLine(Message.stop);
+        else
+        {
+            t_PortHandler.Start();
+            t_StopControl.Start();
+            t_StopControl.Join();    
+            Console.WriteLine(Message.stop);
+        }
     }
 
     static void CliControl()
